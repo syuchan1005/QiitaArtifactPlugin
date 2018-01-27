@@ -21,6 +21,8 @@
       <action class="com.github.syuchan1005.qiitaartifactplugin.TestAction" id="QiitaArtifactPlugin.TestAction" />
       <action class="com.github.syuchan1005.qiitaartifactplugin.NotificationAction" id="QiitaArtifactPlugin.NotificationAction"
               text="Notification" icon="AllIcons.General.Balloon"/>
+      <action class="com.github.syuchan1005.qiitaartifactplugin.DialogAction" id="QiitaArtifactPlugin.DialogAction"
+              text="Dialog" icon="AllIcons.Debugger.Console" />
     </group>
   </actions>
 </idea-plugin>
