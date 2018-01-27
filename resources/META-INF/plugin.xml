@@ -1,0 +1,17 @@
+<idea-plugin>
+  <id>com.github.syuchan1005.qiitaartifactplugin</id>
+  <name>Qiita Artifact Plugin</name>
+  <version>1.0</version>
+  <vendor email="syuchan.dev@gmail.com" url="https://twitter.com/syu_chan_1005">syu_chan_1005</vendor>
+
+  <description><![CDATA[
+      このプラグインはQiita投稿用に作られたプラグインです。
+    ]]></description>
+
+  <change-notes><![CDATA[
+      初記事, プラグイン作成まで
+    ]]>
+  </change-notes>
+
+  <idea-version since-build="173.0"/>
+</idea-plugin>
