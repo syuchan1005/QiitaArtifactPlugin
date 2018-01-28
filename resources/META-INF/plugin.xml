@@ -25,4 +25,8 @@
               text="Dialog" icon="AllIcons.Debugger.Console" />
     </group>
   </actions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <editorTabColorProvider implementation="com.github.syuchan1005.qiitaartifactplugin.TabColorExtensionImpl" />
+  </extensions>
 </idea-plugin>
