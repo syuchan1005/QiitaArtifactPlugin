@@ -1,32 +1,45 @@
 <idea-plugin>
-  <id>com.github.syuchan1005.qiitaartifactplugin</id>
-  <name>Qiita Artifact Plugin</name>
-  <version>1.0</version>
-  <vendor email="syuchan.dev@gmail.com" url="https://twitter.com/syu_chan_1005">syu_chan_1005</vendor>
+    <id>com.github.syuchan1005.qiitaartifactplugin</id>
+    <name>Qiita Artifact Plugin</name>
+    <version>1.0</version>
+    <vendor email="syuchan.dev@gmail.com" url="https://twitter.com/syu_chan_1005">syu_chan_1005</vendor>
 
-  <description><![CDATA[
+    <description><![CDATA[
       このプラグインはQiita投稿用に作られたプラグインです。
     ]]></description>
 
-  <change-notes><![CDATA[
-      初記事, プラグイン作成まで
-    ]]>
-  </change-notes>
+    <idea-version since-build="173.0"/>
 
-  <idea-version since-build="173.0"/>
+    <actions>
+        <group id="QiitaArtifactPlugin.Menu" text="Qiita Artifact">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action class="com.github.syuchan1005.qiitaartifactplugin.TestAction" id="QiitaArtifactPlugin.TestAction"/>
+            <action class="com.github.syuchan1005.qiitaartifactplugin.NotificationAction"
+                    id="QiitaArtifactPlugin.NotificationAction"
+                    text="Notification" icon="AllIcons.General.Balloon"/>
+            <action class="com.github.syuchan1005.qiitaartifactplugin.DialogAction"
+                    id="QiitaArtifactPlugin.DialogAction"
+                    text="Dialog" icon="AllIcons.Debugger.Console"/>
+            <action class="com.github.syuchan1005.qiitaartifactplugin.FireEventAction"
+                    id="QiitaArtifactPlugin.FireEventAction"
+                    text="Fire Action" icon="AllIcons.RunConfigurations.Scroll_down"/>
+        </group>
+    </actions>
 
-  <actions>
-    <group id="QiitaArtifactPlugin.Menu" text="Qiita Artifact">
-      <add-to-group group-id="MainMenu" anchor="last" />
-      <action class="com.github.syuchan1005.qiitaartifactplugin.TestAction" id="QiitaArtifactPlugin.TestAction" />
-      <action class="com.github.syuchan1005.qiitaartifactplugin.NotificationAction" id="QiitaArtifactPlugin.NotificationAction"
-              text="Notification" icon="AllIcons.General.Balloon"/>
-      <action class="com.github.syuchan1005.qiitaartifactplugin.DialogAction" id="QiitaArtifactPlugin.DialogAction"
-              text="Dialog" icon="AllIcons.Debugger.Console" />
-    </group>
-  </actions>
+    <extensions defaultExtensionNs="com.intellij">
+        <editorTabColorProvider implementation="com.github.syuchan1005.qiitaartifactplugin.TabColorExtensionImpl"/>
+    </extensions>
 
-  <extensions defaultExtensionNs="com.intellij">
-    <editorTabColorProvider implementation="com.github.syuchan1005.qiitaartifactplugin.TabColorExtensionImpl" />
-  </extensions>
+    <extensions defaultExtensionNs="com.github.syuchan1005.qiitaartifactplugin">
+        <cFireEventListener implementationClass="com.github.syuchan1005.qiitaartifactplugin.CFireEventListenerImpl" />
+        <iFireEventListener implementation="com.github.syuchan1005.qiitaartifactplugin.IFireEventListenerImpl" />
+    </extensions>
+
+    <extensionPoints>
+        <extensionPoint name="cFireEventListener" beanClass="com.github.syuchan1005.qiitaartifactplugin.CFireEventListener">
+            <with attribute="implementationClass" implements="com.github.syuchan1005.qiitaartifactplugin.CFireEventListener"/>
+        </extensionPoint>
+
+        <extensionPoint name="iFireEventListener" interface="com.github.syuchan1005.qiitaartifactplugin.IFireEventListener"/>
+    </extensionPoints>
 </idea-plugin>
